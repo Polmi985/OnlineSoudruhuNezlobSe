@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soudruhu, nezlob se</title>
+    <link rel="stylesheet" href="/styles/game.css">    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.2.4/pixi.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.js"></script>
+</head>
+<body>
+    <div id="menuContainer" class="menuContainer" style="display:block; background-color: white; padding: 15px 15px;">
+        <h1>NOVA HRA!</h1>
+        <div class="divContainer">
+            <div id="hostThings" style="display: none; margin-bottom: 40px;">
+                <h2 style="font-size: 20px;">Kód hry:</h2>
+                <p id="gameIdText"></p>
+            </div>
+            <h2>Úprava</h2>
+            <div class="editContainer">
+                <div class="editSection">
+                    <p>Úprava barvy figurky</p>
+                    <div class="colorChanger">
+                        <div class="arrow left-arrow" onclick="changeColor(-1)">&larr;</div>
+                        <div class="circle" id="colorCircle"></div>
+                        <div class="arrow right-arrow" onclick="changeColor(1)">&rarr;</div>
+                    </div>
+                </div>            
+                <div class="editSection">
+                    <p>Úprava fotky průkazu</p>
+                    <div class="photoChanger">
+                        <div class="arrow left-arrow" onclick="changePhoto(-1)">&larr;</div>
+                        <div class="photo-preview" id="photoPreview" style="background-image: url(/obrazky/hra/babis.webp); background-size: cover; background-repeat: no-repeat;">
+                        </div>
+                        <div class="arrow right-arrow" onclick="changePhoto(1)">&rarr;</div>
+                    </div>
+                </div>
+            </div>            
+            <h2>Připojení hráči:</h2>
+            <div id="players"></div>
+            <h5 id="errorMessage" style="display: none;">!! 1 hráč je málo !!</h5>
+            <div class="btnContainer">
+                <h3 id="btnReady" class="readyBtn">Připraven</h3>
+                <h3 id="btnStart" class="startBtn" style="display: none;">Začít hru</h3>
+            </div>
+        </div>
+    </div>      
+
+    <div id="cardContainer" class="cardContainer" style="display: none;"></div>
+
+    <div class="kostkaContainer">
+        <div class="dice-container" style="display: none;"></div>
+        <button type="button" class="btn-roll-dice" style="display: none;">Hodit Kostkou</button>
+    </div>
+
+    <div id="gameContainer" class="menuContainer" style="display: none;">              
+        <div id="canvas"></div>                
+    </div>       
+    <div class="overlay" id="overlay"></div>
+    <div id="gameTimer" style="display: none; z-index: 10;">Čas: 0:00:00</div>
+
+    <div class="speech-container" id="speech-container" class="hidden">
+        <img id="character-img" class="character-img" src="/obrazky/hra/postava.webp" alt="Postava" />
+        <div class="speech-box" id="speech-box">
+            <div id="speech-header" class="speech-header">Ahoj pokud toto vidis nekde asi nastal problem</div>
+            <div id="speech-text" class="speech-text">Ahoj pokud toto vidis nekde asi nastal problem</div>
+            <div id="button-container" class="button-container">
+                <button class="speech-button" style="display: none;" id="no-button">Ne</button>
+                <button class="speech-button" id="next-button">Pokračovat>>></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="endGameContainer" class="menuContainer" style="display:none; background-color: white; padding: 15px 15px;">
+        <h1>Konec hry!</h1>
+        <div class="divContainer">
+            <div id="endGameTimer" style="font-size: 16px;"></div>
+            <h2 style="margin-top: 30px;">Hráči</h2>
+            <div id="endGamePlayers" style="margin-top: 20px;"></div>
+            <div class="btnContainer">
+                <h3 id="restartGameBtn" class="readyBtn">Restartovat hru</h3>
+                <h3 id="btnMenu" class="startBtn">Hlavní menu</h3>
+            </div>
+        </div>
+    </div>
+
+    <script src="/scripts/board.js" defer></script>
+    <script src="/scripts/dictionary.js" defer></script>
+    <script src="/scripts/dialogMessages.js" defer></script>
+    <script src="/scripts/main.js" defer></script>
+    <script src="/scripts/player.js" defer></script>
+    <script src="/scripts/cards.js" defer></script>
+    <script src="/scripts/speechBox.js" defer></script>
+    <script src="/scripts/dice.js" defer></script>     
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soudruhu, nezlob se</title>
+    <link rel="stylesheet" href="/styles/style.css">    
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.2.4/pixi.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.js"></script>
+</head>
+<body style="background-image: url(/obrazky/backgrounds/menuBG.webp);display:flex; align-items: center;">  
+
+    <div class="menuContainer" style="display: block;">
+        <div class="titleContainer">
+            <h1>Soudruhu,</h1>
+            <h4 style="display: inline-block;">nezlob se<h1 style="display: inline-block; font-family: sans-serif">!</h1></h4>
+        </div>
+        <div class="divContainer" id="btnContainer">
+            <h3 data-target="gameContainer" class="button-53" id="menuBtn" style="background-color: #3DD1E7; transform: rotate(-2deg);">Hrát</h3>
+            <h3 class="button-53" onclick="window.location.href = '/subpages/pravidla.html'" style="max-width: 300px; background-color: #e73d3d; transform: rotate(1deg);">Pravidla hry</h3>
+            <h3 class="button-53" onclick="window.location.href = '/subpages/slovnik.html'" id="menuBtn" style="background-color: #3de779; transform: rotate(-2deg);">Výkladový slovník</h3>
+            <h3 class="button-53" onclick="window.location.href = '/subpages/about.html'" id="menuBtn" style="background-color: #e7e13d; transform: rotate(1deg);">O Hře</h3>
+        </div>
+        <div class="divContainer" id="gameContainer" style="display: none;">
+            <h3 data-target="ngContainer" class="button-53" id="menuBtn" style="background-color: #3DD1E7; transform: rotate(-2deg);">Založit hru</h3>
+            <h3 class="button-53" data-target="joinClientContainer" id="menuBtn" style="max-width: 300px; background-color: #e73d3d; transform: rotate(1deg);">Připojit se do hry</h3>
+            <h3 id="backBtn" class="button-53" style="background-color: #3de779; transform: rotate(-2deg);" onclick="resetInput()" data-target="btnContainer">Zpět</h3>
+        </div> 
+        <div class="divContainer" id="ngContainer" style="display: none;">
+            <h2>Zadejte své jméno</h2>
+            <input style="margin-top: -10px;" placeholder="Jméno" id="hostUserName"> 
+            <h5 id="errorMessage" style="display: none;"></h5>
+            <h3 id="btnStart" class="button-53" style="background-color: #3DD1E7; transform: rotate(-2deg);">Založit hru</h3>
+            <h3 id="backBtn" class="button-53" style="background-color: #e73d3d; transform: rotate(1deg);" onclick="resetInput()" data-target="gameContainer">Zpět</h3>
+        </div>        
+        <div class="divContainer" id="joinClientContainer" style="display: none;">
+            <h2>Zadejte své jméno</h2>
+            <input style="margin-top: -10px;" placeholder="Zadej jméno" id="userName">
+            <h2 style="margin-bottom: -15px;">Zadejte kod hry</h2>
+            <input placeholder="Zadej kod" type="text" id="textGameId">
+            <h5 id="errorMessage" style="display: none;"></h5>
+            <h3 id="btnJoin" class="button-53" style="background-color: #3DD1E7; transform: rotate(-2deg);">Připojit se</h3>
+            <h3 id="backBtn" class="button-53" style="background-color: #e73d3d; transform: rotate(1deg);" onclick="resetInput()" data-target="gameContainer">Zpět</h3>
+        </div>        
+    </div>    
+
+    <script src="/scripts/menu.js" defer></script>
+</body>
+</html>

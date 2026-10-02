@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style.css">    
+    <title>Pravidla hry</title>
+</head>
+<body style="background-image: url(/obrazky/backgrounds/neutralBG.webp); flex-direction: column;">
+    <div class="pravidlaContainer">
+        <h1 style="font-size: 4rem; text-align: center;">Pravidla hry</h1>
+        <div class="textContainer">
+            <div class="section" style="margin-top: 50px;">
+                <p>Účelem hry je proběhnout všechna pole směrem od "START" (ve středu plánu) k cíli "BRD".</p>
+                <p style="margin-top: 20px;"><strong>Cestou jsou pásma:</strong></p>
+                <ul>
+                    <li>- BEZ: bezpartijní</li>
+                    <li>- KAN: kandidát</li>
+                    <li>- KOM: člen strany</li>
+                    <li>- POS: poslanec</li>
+                    <li>- ÚV: člen ÚV</li>
+                    <li>- POL: člen politbyra ÚV</li>
+                    <li>- GEN: generální tajemník ÚV strany</li>
+                </ul>
+            </div>
+            <div class="section">
+                <p><strong>Vítězem se stává</strong> ten generální tajemník, kterému se podaří vyměnit nahromaděné koruny za valuty a prchnout
+                    s nimi do BRD.</p>
+            </div>
+            <div class="section">
+                <p><strong>S čím se na plánu setkáte:</strong></p>
+                <p><strong> - prázdná políčka</strong></p>
+                <p><strong> - políčka se symbolem smíchu:</strong> hráč si vezme kartičku a vykonná úkol (karta se určuje podle toho v jakému pásmu se hráč zrovna nachází)</p>
+                <p> - existují kartičky které se už do hry nevrátí vůbec:</p>
+                <ul>
+                    <li>- "Propustka z vězení"</li>
+                    <li>- "Kompromitující materiál na předsedu prověrkové komise",</li>
+                    <li>- "Neprůstřelná vesta",</li>
+                    <li>- "Kleště na zátarasy",</li>
+                    <li>- "Plán na zaminováni"</li>
+                </ul>
+                <p> tyto karty se schovají k pozdějšímu použití ve hře (karta se umístí jako ikona vedle vašeho občanského průkazu)</p>
+                <p><strong> - políčka se symbolem smutku:</strong> hráč si vezme kartičku a vykonná úkol (karta se určuje podle toho v jakému pásmu se hráč zrovna nachází)</p>
+                <p><strong> - políčka s částkou "700", "750", "800" atd.:</strong> znamenají výplata z banky a stačí je přejít. Přeskočíš-li podle příkazu více výplat, bereš jejich součet, ale to pouze při skoku vpřed. (v pásmu "GEN" se také vyplácí pouze při pohybu vpřed)</p>
+                
+            </div>
+            <div class="section">
+                <p><strong>V pásmu "KOM"</strong></p>
+                <p>polička I. a (II.) stránické prověrky: Skočíš-li na "ANO", jsi prověřen a figurka se posune na "PROV I" (PROV II).</p>
+                <p>Skočíš-li na "NE", nejsi prověřen a musíš se vrátit na "BEZ". Vlastníš-li však kartičku "Kompromitující materiál na předsedu prověrkové komise", tak jí odevzdáš a půjdeš na "PROV I/PROV II". Stejně tak podplatíš-li předsedu 30 000 Kčs.</p>
+                
+            </div>
+            <div class="section">
+                <p><strong>V pásmu "GEN"</strong></p>
+                <p>- políčko "VEKSL" - dochází ke směně 1 000 000,- Kčs za DM. Je nutno skočit na toto políčko přímo</p>
+                <p>- políčko "PS" (pohraniční stráž) - jsi zastřelen, vyřazen ze hry (s vyjímkou viz stať "HRA").</p>
+                <p>- políčko "Vysoké napětí" - skončíš na elektrických zátarasech, jsi vyřazen ze hry</p>
+                <p>- políčko "MINA" - šlápl jsi na minu, jsi vyřazen ze hry(s vyjímkou viz stať "HRA").</p>                
+            </div>
+            <div class="section">
+                <p><strong>"Blázinec"</strong> - do blázince se dostaneš pouze přes příkaz kartičky</p>
+                <p>- ven z blázince po hození "1" nebo "6" (začínáš od "BEZ")</p>
+                <p><strong>"Vězení"</strong></p>
+                <p>- do vězení</p>
+                <ul>
+                    <li>a) příkazem z kartičky</li>
+                    <li>a) nemáš-li na zaplacení (odevzdáš všechny své peníze)</li>
+                </ul>
+                <p>- ven z vězení po hozeni "1" nebo "6"(začínáš na "BEZ") nebo použítím kartičky "Propustka z vězení" nebo složením kauce 50 000 Kčs</p>
+                <p> V těchto dvou případech pokračuješ ve hře, na "BEZ" se nevracíš.</p>
+            </div>
+            <div class="section">
+                <p><strong>Pohyb v pásmech</strong></p>
+                <p>"BEZ", "KAN", "KOM", "POS", "ÚV" je možný pouze směrem vpřed a nesmí se vyhazovat. Na jednom políčku může být více hráčů.</p>
+                <p>- V pásmu "POL" je možný pouze pohyb vpřed, avšak smí se vyhazovat a to pouze zezadu. (Vyhozený hráč odevzdá tomu, jímž byl vyhozen 100 000 Kčs a vrací se na "POL").</p>
+                <p>- V pásmu "GEN" je možný pohyb vpřed i zpět a vyhazovat je možno oběma směry. (Vyhozený se vrací na políčko "GEN" a tomu, jímž byl vyhozen, odevzdá 100 000 Kčs.) Je-Ii hráč vyhozen z políčka "VEKSL", vrací se na "GEN"! Všechny peníze přitom musí odevzdat tomu, jímž byl vyhozen.</p>
+                
+            </div>
+            <div class="section">
+                <p><strong>H R A:</strong></p>
+                <p>Každý hráč hází vždy 1x kostkou a posunuje figurku. Po "6" hod vždy opakuje. Hráči se tak pohybují jednotlivými pásmy, pravidelně inkasují výplaty a plní příkazy z kartiček.</p>
+                <br>
+                <p>V závěru hry na konci pásma "GEN" postupuje hráč takto:</p>
+                <p>- musí mít nahromaděný 1 milión nejméně (podmínka skoku na políčko "VEKSL"). Když se octne hráč na konci hry a nemá nezbytný milión, nebo o část peněz přijde na cestě mezi poslení výplatou a "VEKSLEM".</p>
+                <p>- umožňuje mu pohyb oběma směry v pásmu "GEN" peníze na políčkách výplat v tomto pásmu získat. Výplaty se však provádí pouze při pohybu směrem vpřed.</p>
+                <p>- Skočí na políčko "VEKSL" a vymění 1 milión za 50 000,- DM. Nezdaří-Ii se mu to, nemůže čekat na místě na potřebné hozené číslo, ale musí jít zpět a pokusit se znovu, když na něj přijde řada</p>
+                <p>- Dále postupuje hraničním pásmem, kde musí obratně manipulovat, aby se vyhnul políčkům "PS", "Vysoké napětí" a "MINA". Povede-Ii se mu to, zvítězil a hra končí.</p>
+                <p> Nemůže-Ii jinak a je nucen skočit na políčko "PS", jsou dvě možnosti:</p>
+                <p>1. Vlastní-Ii kartičku "Neprůstřelná vesta" - odevzdá ji a pokračuje ve hře</p>
+                <p>2. Nevlastní-Ii kartičku "Neprůstřelná vesta", je ze hry úplně vyřazen. Stejně je tomu u pole "Vysoké napětí", tam ho zachrání vlastnictví kartičky "Kleště na zátarasy" i u políčka "MINA" - tam ho zachrání vlastnictví kartičky "Plán zaminování".</p>
+
+
+            </div>
+            <h1 style="font-size: 2rem; text-align: center; font-family: 'Courier New', Courier, monospace;">Společenská hra Ivana Mládka</h1>
+        </div>
+    </div>
+
+    <h3 class="button-53" style="background-color: #3DD1E7; position: fixed; bottom: 20px; left: 20px;" onclick="window.location.href = '../index.html'">Hlavní stranka</h3>
+</body>
+</html>

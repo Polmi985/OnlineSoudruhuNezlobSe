@@ -1,0 +1,575 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body, html {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-image: url(/obrazky/backgrounds/lobbyBG.webp);
+}
+@font-face{
+    font-family: "Abraham";
+    src: url(/font/abraham.italic-demo-italic.otf);
+}
+@font-face{
+    font-family: "NikkyouSans";
+    src: url(/font/NikkyouSans.ttf);
+}
+
+h1{
+    font-size: 3rem;
+    font-family: "Abraham",sans-serif;
+}
+
+h3{
+    border: 10px solid black;
+    border-width: 5px;
+    width: 200px;    
+}
+h3:hover{
+    cursor: pointer;
+}
+
+#canvas{
+    display: flex;
+    justify-content: center;
+    margin-top: -10px;
+    z-index: 5;
+    position: relative;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.card {
+    width: 100px;
+    height: 150px;
+    position: absolute;
+    display: block;
+    z-index: 500;
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+    -webkit-font-smoothing: subpixel-antialiased;
+    will-change: transform, opacity;
+    pointer-events: auto;
+    backface-visibility: hidden;
+}
+
+.cardFront, .cardBack {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-size: contain;
+    background-repeat: no-repeat;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+.cardBack{
+    background-size: contain;
+    background-repeat: no-repeat;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+h7{
+    -webkit-font-smoothing: subpixel-antialiased;
+    padding:7px 7px;
+    text-align:center;
+}
+
+.deleteBtn {
+    width: 130px;
+    height: 45px;
+    position: relative;
+    top:108%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    font-size: 20px;
+}
+
+.vezeniCard{
+    width: 230px;
+    height: 55px;
+    position: relative;
+    top:108%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    font-size: 20px;
+    margin-top: 10px;
+}
+.vezeniCard:hover, .deleteBtn:hover{
+    background-color: #ddd;
+}
+
+.divContainer{
+    padding: 30px;
+    border-radius: 15px;
+    width: 450px;
+    text-align: center;
+    color: #333;
+    font-family: "NikkyouSans";
+}
+
+h2{
+    font-size: 1.6rem;
+    color: #de471a;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.menuContainer{
+    text-align: center;
+    margin-top: 30px;
+    position: relative;
+    margin-bottom: 30px;
+    border-radius: 15px;
+}
+
+.readyBtn, .startBtn {
+    font-size: 1.5rem;
+    border: 2px solid #002D62;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: white;
+    color: #002D62;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
+    font-family: "NikkyouSans",sans-serif;
+}
+
+.readyBtn:hover, .startBtn:hover {
+    background-color: #002D62;
+    color: white;
+    transform: scale(1.05);
+}
+
+.colorChanger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px 0;
+}
+
+.arrow {
+    font-size: 2rem;
+    cursor: pointer;
+    user-select: none;
+    padding: 0 15px;
+    color: black;
+}
+
+.circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: red;
+    border: 2px solid black;
+    margin: 0 15px;
+}
+
+.photoChanger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.photoChanger .photo-preview {
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid #333;
+    border-radius: 8px;
+}
+
+.editContainer {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.editSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.editSection p {
+    margin: 0;
+    text-align: center;
+}
+
+
+#players {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 200px;
+}
+
+#players div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: white;
+    border-radius: 8px;
+    border: 2px solid black;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#players div span {
+    font-size: 1rem;
+    margin-left: 5px;
+}
+
+#players div .ready-indicator {
+    margin-left: auto;
+    font-size: 1.5rem;
+}
+
+.ready-indicator{
+    position: relative;
+    transform: translateX(40px);
+}
+
+#errorMessage {
+    color: red;
+    font-size: 1rem;
+    display: none;
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: center; 
+    gap: 15px;
+    margin-top: 20px;
+}
+
+h3 {
+    font-size: 1.3rem;
+    padding: 10px;
+    border: 2px solid #E6D5B8;
+    border-radius: 5px;
+    color: #002D62;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+h3:hover {
+    background-color: #002D62;
+    color: white;
+    transform: scale(1.05);
+}
+
+#gameIdText {
+    font-size: 1rem;
+    color: #333;
+}
+
+.arrow:hover {
+    color: #888888;
+}
+
+h3:hover {
+    background-color: #002D62;
+    color: white;
+    transform: scale(1.05);
+}
+
+.overlay{
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    animation-name: fadein-overlay;
+    animation-duration: 2s;
+    z-index: 4;
+}
+
+@keyframes fadein-overlay{
+    0% {background-color: rgba(0, 0, 0, 0);}
+    100% {background-color: rgba(0, 0, 0, 0.6);}
+}
+
+.cardContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 4;
+    margin-right: 20px;
+    padding: 10px;
+}
+
+.id-card {
+    width: 300px;
+    height: 170px;
+    border: 4px solid #883239;
+    padding: 10px;
+    font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    background: #ddd5c2;
+    position: relative;
+    margin-right: 40px;
+    transform: scale(0.8);
+    transition: transform 0.6s ease, filter 0.6s ease;
+    backface-visibility: hidden; 
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+.id-card .header {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+.header{
+    letter-spacing: 3px;
+}
+.id-card .photo {
+    width: 80px;
+    height: 100px;
+    background: #ccc;
+    position: absolute;
+    left: 10px;
+    top: 44px;
+    border: 3px solid #333;
+}
+.id-card .content {
+    margin-left: 100px;
+    margin-top: 5px;
+}
+.id-card .field {
+    font-size: 12px;
+    margin: 4px 0;
+    font-weight: 500;
+}
+.icon-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 93%;
+    top: -110%;
+    height: 100%;
+    width: 40%;
+    z-index: 4;
+}
+
+.field .dotted-line{
+    border-bottom: 1px dotted black;
+    text-align: center;
+}
+
+.id-card.active{
+    transform: scale(1);
+    filter: none;
+}
+
+.id-card.inactive{
+    transform: scale(0.8);
+    filter: grayscale(50%);
+}
+
+.dice-container{
+    display: flex;
+    margin-right: 20px;
+}
+
+.dice{
+    background-color: white;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.dice-dot{
+    --top:0%;
+    --left:0%;
+    width: 15px;
+    height: 15px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top:var(--top);
+    left: var(--left);
+    transform: translateX(calc(var(--left) * -1)) translateY(calc(var(--top) * -1));
+}
+
+.kostkaContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-roll-dice{
+    margin-top: 10px;
+    margin-right: 20px;
+    width: 70px;
+    height: 50px;
+    z-index: 4;
+}
+
+.info-icon {
+    font-size: 30px;
+    color: #002D62;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.tooltip {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 320px;
+    max-width: 450px;
+    text-align: center;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.icon-tooltip {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 5px;
+    max-width: 250px;
+    text-align: center;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.speech-container {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 1000;
+    transition: bottom 0.5s ease-in-out;
+}
+
+.character-img {
+    position: absolute;
+    bottom: calc(110% - 100px);
+    left: 20px;
+    width: 400px;
+    height: auto;
+    z-index: 888;
+}
+
+.speech-box {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 150px 20px 150px;
+    box-sizing: border-box;
+    text-align: left;
+    position: relative;
+    z-index: 1000;
+}
+
+.speech-text {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: #fff;
+    font-family: "NikkyouSans", sans-serif;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.speech-header{
+    font-size: 2.3rem;
+    line-height: 1.5;
+    font-family: "NikkyouSans", sans-serif;
+    color: #de471a;
+}
+
+.button-container {
+    align-self: flex-end;
+    display: flex;
+    gap: 10px;
+}
+
+.speech-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.speech-button:hover {
+    background-color: #ddd;
+}
+
+.speech-container.hidden {
+    bottom: -100%;
+}
+
+.speech-container.visible {
+    bottom: 0;
+}
+
+.overlay-razitko{
+    position: fixed;
+    display: none;
+    top:-7%;
+    left: 20%;
+    bottom: 0;
+    right: 0;
+    width: 320px;
+    height: 190px;
+    z-index: 1001;
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: none;
+}
+
+#gameTimer {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
