@@ -147,6 +147,6 @@ Hostitel klikne na **Hrát -> Založit hru**, zadá jméno a nasdílí vygenerov
 
 ## 👨‍💻 Autor & Kredity
 
-- **Autor webové aplikace:** David Polmi (*klauzurní práce z JavaScriptu*)
+- **Autor webové aplikace:** Polmi985 (*klauzurní práce z JavaScriptu*)
 - **Původní námět a desková hra:** Ivan Mládek (1991)
 - **Vydavatel novodobé deskové verze:** EFKO-karton s.r.o.
